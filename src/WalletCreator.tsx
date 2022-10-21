@@ -27,7 +27,7 @@ const WalletRenderer = ({ wallet }: { wallet: Wallet }) => {
   // 靓号
   const isPretty = useMemo(
     () =>
-      ['1314520', '65536', 'dead', 'DEAD', '622848'].some(char =>
+      ['1314520', '65536', 'dead', 'DEAD', '622848', '22631'].some(char =>
         wallet.address.includes(char)
       ),
     [wallet]
@@ -180,7 +180,7 @@ export default function WalletCreator() {
   }, []);
 
   return (
-    <div className="w-full h-screen flex flex-col gap-2 p-2">
+    <div className="w-full h-screen flex flex-col gap-2">
       <div className="p-2 border-b border-gray-100 flex-shrink-0 flex space-x-2 sticky top-0 bg-gray-50 z-10">
         <label className="inline-flex items-center">
           <input
@@ -199,7 +199,7 @@ export default function WalletCreator() {
           Clear
         </button>
       </div>
-      <div className="p-2 max-h-full overflow-auto flex flex-wrap">
+      <div className="max-h-full overflow-auto flex flex-wrap">
         {wallets.map((wallet, i) => (
           <WalletRenderer wallet={wallet} key={i} />
         ))}
